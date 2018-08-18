@@ -1,0 +1,64 @@
+{% extends "general/base.html" %}
+
+{% block side_nav_links %}
+	{% block links %}
+		<li class="active"><a href="/users/login" class="black-text">Login</a></li>
+		<li><a href="/contact" class="black-text">Contact Us</a></li>
+	{% endblock %}
+{% endblock %}
+
+{% block title %}Login{% endblock %}
+
+{% block form %}
+	<div class="container">
+		<div class="section">
+			<div class="row">
+				<div class="col s12 center">
+					<h3><i class="mdi-content-send pink-text"></i></h3>
+					<h4>Login</h4>
+					<div class="left-align light">
+						<form class="col s12" method='POST' action=''> {% csrf_token %}
+
+							<center>{{ form.non_field_errors }}</center>
+
+							<div class="row">
+								<div class="input-field col s10 offset-s1 l6 offset-l3">
+									<i class="material-icons prefix">perm_identity</i>
+									<label for="icon_prefix">School</label>
+									{{ form.school }}
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s10 offset-s1 l6 offset-l3">
+									{{ form.username.errors }}
+									<i class="material-icons prefix">perm_identity</i>
+									<label for="icon_prefix">Username</label>
+									{{ form.username }}
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s10 offset-s1 l6 offset-l3">
+									{{ form.password.errors }}
+									<i class="material-icons prefix">vpn_key</i>
+									<label for="icon_prefix">Password</label>
+									{{ form.password }}
+								</div>
+							</div>
+
+							<div class="row center">
+								<button class="btn waves-effect waves-light pink lighten-1" type="submit" name="action">Login
+									<i class="material-icons right">send</i>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block extras %}
+{% endblock %}

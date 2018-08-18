@@ -1,0 +1,83 @@
+{% extends "general/base.html" %}
+
+{% block side_nav_links %}
+	{% block links %}
+		<li class="active"><a href="/simp" class="black-text">Simplifier</a></li>
+		<li><a href="/users/account" class="black-text">Account</a></li>
+		<li><a href="/users/logout" class="black-text">Logout</a></li>
+		<li><a href="/contact" class="black-text">Contact Us</a></li>
+	{% endblock %}
+{% endblock %}
+
+{% block title %}Simplifier{% endblock %}
+
+{% block form %}
+<div class="container">
+	<div class="section">
+		<div class="row">
+			<div class="col s12 center">
+				<h3><i class="mdi-content-send pink-text"></i></h3>
+
+				<div class="left-align light">
+
+					<form class="col s12" method='POST' action='' id="simplification_form">
+						<div class="row">
+							<div class="input-field col s6 offset-s3" style="margin-top: 2%">
+								<i class="material-icons prefix">mode_edit</i>
+									<textarea id="text" class="materialize-textarea" name="text_box"></textarea>
+								<label for="icon_prefix2">Sentence</label>
+							</div>
+						</div>
+
+						<div class="simplification_data card-panel slider">
+							<div class="row center" id="report_button">
+								<button onclick="report()" class="btn waves-effect waves-light pink lighten-1" type="button" name="send">
+									<i class="material-icons left">report_problem</i> Report result
+								</button>
+							</div>
+
+							<p id="statistics" class="slider-text black-text"></p>
+							<div id="definition" class="slider-text black-text"></div>
+						</div>
+						<div class="simplification_button">
+							<a class="btn-floating btn-large" style="background-color: transparent; box-shadow: none;">
+								<i class="material-icons left-right" style="color: #f8bbd0;">keyboard_arrow_left</i>
+							</a>
+						</div>
+
+						{% load staticfiles %}
+						<script src="{% static 'js/get_request.js' %}"></script>
+						<script src="{% static 'js/report.js' %}"></script>
+						<script src="{% static 'js/simplification_bar.js' %}"></script>
+
+						<div class="row center">
+							<button onclick="beginSimplification()" class="btn waves-effect waves-light pink lighten-1 left-right" type="button" name="send">Simplify
+								<i class="material-icons right">send</i>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extras %}
+	<div class="container" style="max-width: 60%">
+		<div class="section">
+			<div class="row">
+				<div class="col s12 center">
+					<p class="flow-text" id="simplification_result"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<p id="time"></p>
+							
+	{% include 'general/loader.html' %}
+
+	<!-- {% include 'users/survey.html' %} -->
+
+{% endblock %}

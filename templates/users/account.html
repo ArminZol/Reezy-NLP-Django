@@ -1,0 +1,99 @@
+{% extends "general/base.html" %}
+
+{% block side_nav_links %}
+	{% block links %}
+		<li><a href="/simp" class="black-text">Simplifier</a></li>
+		<li class="active"><a href="/users/account" class="black-text">Account</a></li>
+		<li><a href="/users/logout" class="black-text">Logout</a></li>
+		<li><a href="/contact" class="black-text">Contact Us</a></li>
+	{% endblock %}
+{% endblock %}
+
+{% block title %}My Account{% endblock %}
+
+{% block form %}
+	<div class="row">
+		<form id="edit_form" method='POST' action=''> {% csrf_token %}
+			<div class="col s12 l8 offset-l2">
+				<div class="card-panel pink lighten-4 pink-text">
+					<center>{{ form.non_field_errors }}</center>
+
+					<h3>
+						My Account
+
+						<a onclick="edit()" class="right tooltipped btn-floating btn-large pink waves-effect waves-light pink lighten-1 hide-on-med-and-down" data-position="right" data-delay="50" data-tooltip="Edit">
+							<i id="edit_fab" class="large material-icons">mode_edit</i>
+						</a>
+					</h3>
+
+					<div class="divider"></div>
+
+					<div class="left-align">
+						<div class="row section">
+							<div class="input-field col s6">
+								{{ form.first_name.errors }}
+								<i class="material-icons prefix">person</i>
+								{{ form.first_name.label_tag }}
+								{{ form.first_name }}
+							</div>
+
+							<div class="input-field col s6">
+								{{ form.last_name.errors }}
+								<i class="material-icons prefix">person</i>
+								{{ form.last_name.label_tag }}
+								{{ form.last_name }}
+							</div>
+						</div>
+
+						<div class="divider"></div>
+
+						<div class="row section">
+							<div class="input-field col s10 offset-s1 l6 offset-l3">
+								{{ form.username.errors }}
+								<i class="material-icons prefix">perm_identity</i>
+								{{ form.username.label_tag }}
+								{{ form.username }}
+							</div>
+						</div>
+
+						<div class="divider"></div>
+
+						<div class="row section">
+							<div class="input-field col s10 offset-s1 l6 offset-l3">
+								{{ form.email.errors }}
+								<i class="material-icons prefix">email</i>
+								{{ form.email.label_tag }}
+								{{ form.email }}
+							</div>
+						</div>
+
+						<div class="divider"></div>
+
+						<div class="row section">
+							<div class="col s12">
+								<p><b>Account Created On:</b> {{ creation_date }}</p>
+							</div>
+
+							<div class="col l5 s12">
+								<p><b>Last Login:</b> {{ last_login }}</p>
+							</div>
+
+							<div class="col l7 s12 right">
+								<a href="/users/change_password" class="right waves-effect waves-pink btn-flat">Change Password</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div onclick="edit()" class="tooltipped fixed-action-btn hide-on-large-only" data-position="left" data-delay="50" data-tooltip="Edit" style="bottom: 45px; right: 24px;">
+		<a class="btn-floating btn-large pink waves-effect waves-light pink lighten-1">
+			<i id="edit_fab_mobile" class="large material-icons">mode_edit</i>
+		</a>
+	</div>
+
+	{% load staticfiles %}
+	<script src="{% static 'js/update_user_account.js' %}"></script>
+{% endblock %}

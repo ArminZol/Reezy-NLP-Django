@@ -1,0 +1,29 @@
+<div class="row" style="visibility: hidden" id="user_survey">
+	<div class="col s4 offset-s4">
+		<div class="card pink lighten-4">
+			<span class="card-title pink-text lighten-1" id="user_question">Is this a hard word?</span>
+			<br>
+
+			<p class="pink-text lighten-1" id="user_word">...</p>
+
+			<div id="user_survey_input_container">
+				<input name="user_yesOrNo" type="radio" id="user_no" />
+				<label class="pink-text lighten-1" for="user_no">No</label>
+
+				<br>
+
+				<input name="user_yesOrNo" type="radio" id="user_yes" />
+				<label class="pink-text lighten-1" for="user_yes">Yes</label>
+
+				<p></p>
+					
+				<button onclick="putUserWord()" class="btn waves-effect waves-light pink lighten-1" type="button" name="action">Share
+					<i class="material-icons right">send</i>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% load staticfiles %}
+<script src="{% static 'js/user_survey.js' %}"></script>

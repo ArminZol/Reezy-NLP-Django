@@ -1,0 +1,68 @@
+{% extends "general/base.html" %}
+
+{% block side_nav_links %}
+	{% block links %}
+		{% for link, title in zippped_list %}
+			<li><a href="{{ link }}" class="black-text">{{ title }}</a></li>
+		{% endfor %}
+
+		<li class="active"><a href="/contact" class="black-text">Contact Us</a></li>
+	{% endblock %}
+{% endblock %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block form %}
+	<div class="container">
+		<div class="section">
+
+			<div class="row">
+				<div class="col s12 center">
+					<h3><i class="mdi-content-send pink-text"></i></h3>
+
+					<h4>Contact Us</h4>
+
+					<div class="left-align light">
+						<form class="col s12" method='POST' action=''> {% csrf_token %}
+							
+							<center>{{ form.non_field_errors }}</center>
+
+							<div class="row">
+								<div class="input-field col s10 offset-s1 l6 offset-l3">
+									{{ form.name.errors }}
+									<i class="material-icons prefix">account_circle</i>
+									{{ form.name.label_tag }}
+									{{ form.name }}
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s10 offset-s1 l6 offset-l3">
+									{{ form.email.errors}}
+									<i class="material-icons prefix">email</i>
+									{{ form.email.label_tag }}
+									{{ form.email }}
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s10 offset-s1 l6 offset-l3">
+									{{ form.content.errors }}
+									<i class="material-icons prefix">subject</i>
+									<label for="icon_prefix2">Tell Us What's Up</label>
+									{{ form.content }}
+								</div>
+							</div>
+
+							<div class="row center">
+								<button class="btn waves-effect waves-light pink lighten-1" type="submit" name="action">Submit
+									<i class="material-icons right">send</i>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

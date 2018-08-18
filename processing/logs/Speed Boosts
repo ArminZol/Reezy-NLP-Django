@@ -1,0 +1,15 @@
+29.4637420177
+(Original)
+0%
+
+28.7498390675
+(Made get_pos_tag method only search PyDictionary once instead of twice)
+2%
+
+19.8038179874
+(Changed check_pos method to use wordnet instead of PyDictionary)
+31%
+
+15.1985650063
+(Made get_pos_tag method use wordnet instead of PyDictionary)
+23%

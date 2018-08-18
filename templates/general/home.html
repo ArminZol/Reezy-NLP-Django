@@ -1,0 +1,172 @@
+{% extends "general/base.html" %}
+{% block title %}Student Resources Home{% endblock %}
+
+{% block side_nav_links %}
+	{% block links %}
+		{% for link, title in zippped_list %}
+			<li><a href="{{ link }}" class="black-text">{{ title }}</a></li>
+		{% endfor %}
+
+		<li><a href="/contact" class="black-text">Contact Us</a></li>
+	{% endblock %}
+{% endblock %}
+
+{% block form %}
+	<div id="index-banner" class="parallax-container">
+		<div class="section no-pad-bot">
+			<div class="container">
+				<br><br>
+				<h1 class="header center white-text text-lighten-1">Reezy</h1>
+				<div class="row center">
+					<h5 class="header col s12 white-text light">Reading made easy</h5>
+				</div>
+
+				<div class="row center">
+					<a href="/simp" id="download-button" class="btn-large waves-effect waves-light pink lighten-1">Get Started</a>
+				</div>
+				<br><br>
+			</div>
+		</div>
+
+		{% load staticfiles %}
+		
+		<div class="parallax">
+			<img src="{% static 'background1.jpg' %}" alt="Unsplashed background img 1"/>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="section">
+
+			<!--   Icon Section   -->
+			<div class="row">
+				<div class="col s12 m4">
+					<div class="icon-block">
+						<h2 class="center pink-text"><i class="medium material-icons">grade</i></h2>
+						<h5 class="center">Who is Reezy for?</h5>
+						<p class="light">Short answer - students! Long answer - we are dedicated to helping kids that are in school and have trouble with the English language, but are eager to learn it</p>
+					</div>
+				</div>
+
+				<div class="col s12 m4">
+					<div class="icon-block">
+						<h2 class="center pink-text"><i class="medium material-icons">subtitles</i></h2>
+						<h5 class="center">How Can it Help?</h5>
+						<p class="light">With Reezy's powerful simplification platform, students learn English faster by understanding sentences with complex lingo, as well as retaining the lingo in their vocabulary</p>
+					</div>
+				</div>
+
+				<div class="col s12 m4">
+					<div class="icon-block">
+						<h2 class="center pink-text"><i class="medium material-icons">info_outline</i></h2>
+						<h5 class="center">How Does it Simplify?</h5>
+						<p class="light">We replace each hard/uncommon/long word with the most closely related, and simplest word we find based on the students individual vocabulary. For example, the word "idiosyncrasy" will be replaced with "habit"</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="parallax-container valign-wrapper">
+		<div class="section no-pad-bot">
+			<div class="container">
+				<div class="row center">
+					<h5 class="flow-text header col s12 white-text light">A modern way of helping expand the way students learn</h5>
+				</div>
+			</div>
+		</div>
+		<div class="parallax img-darken">
+			<img src="{% static 'background2.jpg' %}" alt="Unsplashed background img 2">
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="section">
+			<div class="row">
+				<div class="col s12 m4">
+					<div class="icon-block">
+
+						<!-- <h2 class="center pink-text"><i class="medium material-icons">list</i></h2>
+ 						<h5 class="center">What We're Working On</h5>
+ 						
+ 						<ul class="collection">
+ 							<li class="collection-item">Creating an Android app</li>
+ 							<li class="collection-item">Making a Google Chrome extension</li>
+ 							<li class="collection-item">Better simplification results, in less time</li>
+ 						</ul> -->
+ 
+						<h2 class="center pink-text"><i class="medium material-icons">list</i></h2>
+						<h5 class="center">How Does it Work?</h5>
+						
+						<ul class="collection">
+							<li class="collection-item">First we break down each sentence in words</li>
+							<li class="collection-item">Then we go through each word to check if it classifies as "hard"</li>
+							<li class="collection-item">Next we run each hard word through our ranking algorithms that decided how to simplifiy it</li>
+							<li class="collection-item">And finally the result is shown to you!</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col s12 m4">
+					<div class="icon-block">
+
+						<h2 class="center pink-text"><i class="medium material-icons">visibility</i></h2>
+						<h5 class="center">Our Vision</h5>
+						<p class="light">In the future we hope to create a platform for everyone, that helps with almost every literary task you can imagine! From understanting text, to writing an essay, we'll be there for you the whole way</p>
+
+					</div>
+				</div>
+
+				<div class="col s12 m4">
+					<div class="icon-block">
+
+						<h2 class="center pink-text"><i class="medium material-icons">done</i></h2>
+						<h5 class="center">Features</h5>
+
+						<ul class="collection">
+							<li class="collection-item">A simplifier that makes "hard" into "easy"</li>
+							<li class="collection-item">Details about text (e.g. syllable count, reading difficulty, stuff you wont find anywhere else)<</li>
+							<li class="collection-item">Definitions for every word, just a click away!</li>
+							<li class="collection-item">Custom results for each student, based on their vocabulary</li>
+						</ul>
+						
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="parallax-container valign-wrapper">
+		<div class="section no-pad-bot">
+			<div class="container">
+				<div class="row center">
+					<h5 class="header col s12 white-text light">A final solution to language barriers in the classroom</h5>
+				</div>
+			</div>
+		</div>
+		<div class="parallax img-darken">
+			<img src="{% static 'background3.jpg' %}" alt="Unsplashed background img 3">
+		</div>
+	</div>
+
+	{% if not user.is_authenticated %}
+		<div class="section row center">
+			<a href="users/sign_up" class="btn-large waves-effect waves-light pink lighten-1">Sign Up Now</a>
+		</div>
+	{% endif %}
+
+	<footer class="page-footer pink lighten-1">
+		<div class="container">
+				<div class="row">
+					<div class="col s6 offset-s3">
+						<h5 class="white-text">Our Mission</h5>
+						<p class="grey-text text-lighten-4">To help and quicken the process of learning by providing an effective reduction to the communication barrier</p>
+					</div>
+				</div>
+
+			<div class="footer-copyright pink lighten-1"></div>
+		</div>
+	</footer>
+{% endblock %}

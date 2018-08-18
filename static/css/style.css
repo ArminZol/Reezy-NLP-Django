@@ -1,0 +1,84 @@
+/* label focus color */
+.input-field input[type=text]:focus + label { /* Some stupid ass shit that breaks the colour if this shit is deleted*/
+	color: #ec407a;
+}
+.input-field textarea.materialize-textarea:focus + label {
+	color: #ec407a;
+}
+.input-field input[type=text]:focus + label{
+	color: #ec407a;
+}
+
+.input-field input[type=email]:focus + label{
+	color: #ec407a;
+}
+
+.input-field input[type=password]:focus + label{
+	color: #ec407a;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid #ec407a;
+	box-shadow: 0 1px 0 0 #ec407a;
+}
+
+.input-field input[type=email]:focus {
+	border-bottom: 1px solid #ec407a;
+	box-shadow: 0 1px 0 0 #ec407a;
+}
+
+.input-field input[type=password]:focus {
+	border-bottom: 1px solid #ec407a;
+	box-shadow: 0 1px 0 0 #ec407a;
+}
+
+.input-field textarea.materialize-textarea:focus {
+	border-bottom: 1px solid #ec407a;
+	box-shadow: 0 1px 0 0 #ec407a;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+	color: #ec407a;
+}
+
+.spinner-layer {
+	border-color: #ec407a;
+}
+
+.waves-effect.waves-pink .waves-ripple {
+	background-color: #ec407a;
+}
+
+.word-container:hover {
+	background-color: #f8bbd0;
+	border-radius: 5px;
+	cursor: pointer;
+	display: inline;
+}
+
+.simplification_data {
+	width:20%;
+	height:91%;
+	position:fixed;
+	top:8%;
+	left:100%;
+	overflow: auto;
+	background-color:#f8bbd0;
+}
+
+.simplification_button {
+	position: fixed;
+	top: 50%;
+	right: 0;
+	visibility: hidden
+}
+
+.img-darken {
+	background: #000;
+}
+
+.img-darken img {
+	opacity: 0.5;
+}

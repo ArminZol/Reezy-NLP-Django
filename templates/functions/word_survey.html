@@ -1,0 +1,48 @@
+{% extends "general/base.html" %}
+
+{% block side_nav_links %}
+	{% block links %}
+		{% for link, title in zippped_list %}
+			<li><a href="{{ link }}" class="black-text">{{ title }}</a></li>
+		{% endfor %}
+
+		<li><a href="/contact" class="black-text">Contact Us</a></li>
+	{% endblock %}
+{% endblock %}
+
+{% block title %}Help Us Out With A Few Answers!{% endblock %}
+
+{% block form %}
+	<div class="row">
+		<div class="col s4 offset-s4">
+			<div class="card pink lighten-4">
+				<span class="card-title pink-text lighten-1" id="question">Is this a hard word?</span>
+				<br>
+				<p class="pink-text lighten-1" id="word">...</p>
+
+				<div id="survey_input_container">
+					<input name="yesOrNo" type="radio" id="no" disabled="true" />
+					<label class="pink-text lighten-1" for="no">No</label>
+
+					<br>
+
+					<input name="yesOrNo" type="radio" id="yes" disabled="true" />
+					<label class="pink-text lighten-1" for="yes">Yes</label>
+
+					<p></p>
+						
+					<button id="submitButton" onclick="putGlobalWord()" class="btn waves-effect waves-light pink lighten-1 disabled type="button" name="action" disabled="true">Share
+						<i class="material-icons right">send</i>
+					</button>
+				</div>
+			</div>
+			
+			{% load staticfiles %}
+			<div id="no_survey_img" style="visibility: hidden;">
+				<img src="{% static 'sad_face.png' %}" alt=":("/>
+			</div>
+		</div>
+	</div>
+
+	<script src="{% static 'js/global_survey.js' %}"></script>
+{% endblock %}
